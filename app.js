@@ -31,6 +31,15 @@ app.use('/api', useRouter)
 // 用户信息路由模块
 const userinfoRouter = require('./router/userinfo')
 app.use('/my', userinfoRouter)
+// 导入分类路由模块
+const artcateRouter = require('./router/artcate')
+app.use('/my/article', artcateRouter)
+// 导入文章路由模块
+const articleRouter = require('./router/article')
+app.use('/my/article', articleRouter)
+
+// 托管静态文件资源
+app.use('/uploads', express.static('./uploads'))
 
 // 定义错误级别中间件
 app.use((err, req, res, next) => { 
